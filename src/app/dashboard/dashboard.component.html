@@ -1,0 +1,70 @@
+<div class="dashboard">
+  <aside class="sidebar">
+    <nav>
+      <ul>
+        <li><a routerLink="/dashboard" class="active">Dashboard</a></li>
+      </ul>
+    </nav>
+    <button class="btn add-task-btn" (click)="adicionarTarefa()">Adicionar Tarefa</button>
+    <button class="btn completed-tasks-btn" (click)="verTarefasCompletas()">Ver Tarefas Completas</button>
+  </aside>
+
+  <main class="main-content">
+    <!-- Botão "Sair" posicionado no canto superior direito -->
+    <button (click)="sair()" class="logout-btn">Sair</button>
+
+    <section class="task-section">
+      <h2>Tarefas de Hoje</h2>
+      <ul class="task-list">
+        <li *ngFor="let tarefa of tarefasHoje" class="task-item">
+          <div class="task-info">
+            <span class="task-title">{{ tarefa.titulo }}</span>
+            <span class="task-details">{{ tarefa.descricao }}</span>
+            <span class="task-deadline">{{ tarefa.prazo }}</span>
+            <span class="task-priority">{{ tarefa.prioridade }}</span>
+          </div>
+          <div class="task-actions">
+            <button class="btn complete-btn" (click)="concluirTarefa(tarefa)">Concluir</button>
+            <button class="btn edit-btn" (click)="editarTarefa(tarefa)">Editar</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="task-section">
+      <h2>Próximas Tarefas</h2>
+      <ul class="task-list">
+        <li *ngFor="let tarefa of tarefasProximas" class="task-item">
+          <div class="task-info">
+            <span class="task-title">{{ tarefa.titulo }}</span>
+            <span class="task-details">{{ tarefa.descricao }}</span>
+            <span class="task-deadline">{{ tarefa.prazo }}</span>
+            <span class="task-priority">{{ tarefa.prioridade }}</span>
+          </div>
+          <div class="task-actions">
+            <button class="btn complete-btn" (click)="concluirTarefa(tarefa)">Concluir</button>
+            <button class="btn edit-btn" (click)="editarTarefa(tarefa)">Editar</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section class="task-section">
+      <h2>Tarefas de Baixa Prioridade</h2>
+      <ul class="task-list">
+        <li *ngFor="let tarefa of tarefasBaixaPrioridade" class="task-item">
+          <div class="task-info">
+            <span class="task-title">{{ tarefa.titulo }}</span>
+            <span class="task-details">{{ tarefa.descricao }}</span>
+            <span class="task-deadline">{{ tarefa.prazo }}</span>
+            <span class="task-prioridade">{{ tarefa.prioridade }}</span>
+          </div>
+          <div class="task-actions">
+            <button class="btn complete-btn" (click)="concluirTarefa(tarefa)">Concluir</button>
+            <button class="btn edit-btn" (click)="editarTarefa(tarefa)">Editar</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+</div>

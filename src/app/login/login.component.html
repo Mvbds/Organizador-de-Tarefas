@@ -1,0 +1,37 @@
+<div class="login-container">
+  <div class="login-card">
+    <!-- Seção de boas-vindas -->
+    <div class="welcome-section">
+      <h2>BEM VINDO</h2>
+      <h1>**Novo Login**</h1>
+      <button class="create-account-btn" [routerLink]="['/cadastro-usuario']">Criar Conta</button>
+    </div>
+
+    <!-- Seção de login -->
+    <div class="login-section">
+      <h2>FAÇA LOGIN!</h2>
+      <form (ngSubmit)="onSubmit()">
+        <label for="usuario">Usuário</label>
+        <input
+          type="text"
+          id="usuario"
+          placeholder="Usuário"
+          [(ngModel)]="loginData.usuario"
+          name="usuario"
+          required
+        />
+        <label for="senha">Senha</label>
+        <input
+          type="password"
+          id="senha"
+          placeholder="Senha"
+          [(ngModel)]="loginData.senha"
+          name="senha"
+          required
+        />
+        <button type="submit" class="login-btn" [routerLink]="['/dashboard']">Entrar</button>
+      </form>
+      <a href="#" class="forgot-password-link">Esqueceu a senha?</a>
+    </div>
+  </div>
+</div>
